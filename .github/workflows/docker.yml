@@ -1,0 +1,37 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main  # Déclenche le workflow lors d'un push sur la branche main
+  workflow_dispatch:  # Permet de déclencher manuellement le workflow
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : Checkout du code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Étape 2 : Configurer Docker Buildx (pour le cache et les builds multi-plateformes)
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      # Étape 3 : Se connecter à Docker Hub (ou un autre registre Docker)
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      # Étape 4 : Construire et pousser l'image Docker avec cache
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .  # Répertoire contenant le Dockerfile
+          push: true  # Pousser l'image après la construction
+          tags: nevermind78/binderjupyter:latest  # Tag de l'image
+          cache-from: type=registry,ref=nevermind78/binderjupyter:cache  # Utiliser le cache existant
+          cache-to: type=registry,ref=nevermind78/binderjupyter:cache,mode=max  # Sauvegarder le cache
