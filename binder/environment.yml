@@ -22,4 +22,4 @@ dependencies:
   - tensorflow
   - pip
   - pip:
-      - fancyimpute>=0.7.0  # Installé via pip car non disponible sur conda-forge
+      - fancyimpute>=0.7.0  # 
