@@ -10,7 +10,7 @@ matplotlib>=3.8.2
 mlxtend>=0.23.1
 openml>=0.14.2
 seaborn>=0.13.2
-tensorflow-addons
+#tensorflow-addons
 graphviz>=0.20.1
-tensorflow
+#tensorflow
 fancyimpute>=0.7.0
