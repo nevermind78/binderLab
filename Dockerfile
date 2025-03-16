@@ -8,10 +8,10 @@ RUN conda env update -n base -f environment.yml && \
     pip install fancyimpute>=0.7.0
 
 # Copier les notebooks
-COPY notebooks /home/jovyan/notebooks
+COPY labs /home/jovyan/labs
 
 # Définir le répertoire de travail
-WORKDIR /home/jovyan/notebooks
+WORKDIR /home/jovyan/labs
 
 # Commande par défaut
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
