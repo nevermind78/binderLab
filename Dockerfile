@@ -4,7 +4,7 @@ FROM jupyter/base-notebook:latest
 # Installer les dépendances avec conda
 
 # Copier le fichier requirements.txt
-COPY requirements.txt .
+COPY binder/requirements.txt .
 
 # Installer les dépendances avec pip
 RUN pip install --no-cache-dir -r requirements.txt
