@@ -2,10 +2,12 @@
 FROM jupyter/base-notebook:latest
 
 # Installer les dépendances avec conda
-COPY binder/environment.yml .
-RUN conda env update -n base -f environment.yml && \
-    conda clean -afy && \
-    pip install fancyimpute>=0.7.0
+
+# Copier le fichier requirements.txt
+COPY requirements.txt .
+
+# Installer les dépendances avec pip
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copier les notebooks
 COPY labs /home/jovyan/labs
