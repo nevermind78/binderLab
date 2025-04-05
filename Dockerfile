@@ -12,6 +12,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copier les notebooks
 COPY labs /home/jovyan/labs
 
+# Copier le fichier de configuration dans le répertoire ~/.jupyter du conteneur
+COPY jupyter_server_config.py /home/jovyan/.jupyter/jupyter_server_config.py
+
 # Définir le répertoire de travail
 WORKDIR /home/jovyan/labs
 
