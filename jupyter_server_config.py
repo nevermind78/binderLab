@@ -568,8 +568,8 @@ c.ServerApp.token = ''
 # c.ServerApp.tornado_settings = {}
 c.ServerApp.tornado_settings = {
     "headers": {
-        "X-Frame-Options": "ALLOWALL",
-        "Content-Security-Policy": "frame-ancestors 'self' http://127.0.0.1:8000"
+        "X-Frame-Options": "ALLOWALL",  # Permet de charger dans un iframe sans restriction
+        "Content-Security-Policy": "frame-ancestors 'self' https://hub.2i2c.mybinder.org"  # Permet l'iframe à partir de MyBinder
     }
 }
 ## Whether to trust or not X-Scheme/X-Forwarded-Proto and X-Real-Ip/X-Forwarded-
