@@ -34,4 +34,4 @@ jobs:
           push: true  # Pousser l'image après la construction
           tags: nevermind78/binderjupyter:latest  # Tag de l'image
           cache-from: type=registry,ref=nevermind78/binderjupyter:cache  # Utiliser le cache existant
-          cache-to: type=registry,ref=nevermind78/binderjupyter:cache,mode=max  # Sauvegarder le cache
+          
