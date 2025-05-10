@@ -16,4 +16,4 @@ COPY notebooks /home/jovyan/notebooks
 WORKDIR /home/jovyan/
 
 # Commande par défaut
-CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--NotebookApp.token=''", "--NotebookApp.allow_origin='*'", "--NotebookApp.base_url=/"]
