@@ -11,9 +11,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copier les notebooks
 COPY labs /home/jovyan/labs
-
+COPY notebooks /home/jovyan/notebooks
 # Définir le répertoire de travail
-WORKDIR /home/jovyan/labs
+WORKDIR /home/jovyan/
 
 # Commande par défaut
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
